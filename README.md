@@ -1,10 +1,10 @@
-# Pre-work - Tip Calculator 
+# Pre-work - *Tip Calculator* 
 
-TipCalculator is a tip calculator application for iOS written in Swift.
+**TipCalculator** is a tip calculator application for iOS written in Swift.
 
-Submitted by: May Thazin
+Submitted by: **May Thazin**
 
-Time spent: 6 hours spent in total
+Time spent: **6** hours spent in total
 
 ## User Stories
 
@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [X] List anything else that you can get done to improve the app functionality!
-- [X] Added feature to change theme color
+- [X] Added new feature to change theme color 
 
 ## Video Walkthrough 
 

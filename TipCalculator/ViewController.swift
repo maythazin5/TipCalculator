@@ -54,24 +54,27 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("view will appear")
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("view did appear")
+
         updateViewsWithDefaults(isChangedVal: false)
         calculateTip(self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("view will disappear")
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("view did disappear")
+        
+        let minute:TimeInterval = 600
+        let date = Date(timeIntervalSinceNow: minute)
+        defaults.set(date, forKey: "tenminInterval")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,12 +104,17 @@ class ViewController: UIViewController {
             defaults.set(tipControl.selectedSegmentIndex, forKey: "tipPercentageIndex")
 
         }else {
+            let date:Date = defaults.object(forKey: "tenminInterval") as! Date
+            let current_date = Date()
+          
+            if current_date < date {
             
-            billField.text = defaults.string(forKey: "bill")
-            tipLabel.text  = defaults.string(forKey: "tip")
-            totalLabel.text = defaults.string(forKey: "total")
-            tipControl.selectedSegmentIndex = defaults.integer(forKey: "tipPercentageIndex")
-            changeViewTheme()
+               billField.text = defaults.string(forKey: "bill")
+               tipLabel.text  = defaults.string(forKey: "tip")
+               totalLabel.text = defaults.string(forKey: "total")
+               tipControl.selectedSegmentIndex = defaults.integer(forKey: "tipPercentageIndex")
+               changeViewTheme()
+            }
         }
         
         if !defaults.bool(forKey: "isDefaultSet"){
